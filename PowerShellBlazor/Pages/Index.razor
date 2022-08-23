@@ -1,0 +1,47 @@
+﻿@page "/"
+@inject IPowerShellService PowerShellService
+@inject IWebHostEnvironment WebHostEnvironment
+@using System.Management.Automation;
+<EditForm EditContext="@editContext" OnSubmit="RunScript">
+    <DataAnnotationsValidator />
+    <div class="mb-3">
+        <label for="Name" class="form-label">Script</label>
+        <div class="col-md-4">
+            <InputText class="form-control" @bind-Value="script" required="required" />
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Run</button>
+    </div>
+</EditForm>
+
+<hr />
+@foreach (MarkupString line in PowerShellService.Output)
+{
+    @line;
+}
+
+@code
+{
+    protected EditContext editContext;
+    protected override void OnInitialized()
+    {
+        editContext = new(script);
+
+    }
+    protected string script { get; set; } = "";
+    protected void RunScript()
+    {
+        PowerShellService.Output = new();
+        string pscommand = Path.Combine(WebHostEnvironment.ContentRootPath, "Scripts/" + script);
+        PowerShell shell = PowerShell.Create();
+        shell.AddCommand(pscommand);
+        PowerShellService.OutputChanged += OutputChanged;
+        Task.Run(() => PowerShellService.RunScript(shell, true));
+    }
+
+    private void OutputChanged(object sender, List<string> newOutput)
+    {
+        InvokeAsync(() => this.StateHasChanged());
+    }
+}
