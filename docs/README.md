@@ -23,7 +23,7 @@ Looks like this...
 
 * PowerShell scripts must be non-interactive; there's no means to provide input back to PowerShell scripts once they're running.
 
-* Output must be written using Write-Output, Write-Information, Write-Progress, Write-Warning, or Write-Error only. Output written with Write-Host cannot be captured and hence won't display in the results window.
+* Output must be written using `Write-Output`, `Write-Information`, `Write-Progress`, `Write-Warning`, or `Write-Error` only. Output written with `Write-Host` cannot be captured and hence won't display in the results window.
 
 * Ensure PowerShell Execution Policies have been sufficiently opened to allow scripts to run. If in doubt (and at own risk), as Administrator run:
 ```powershell
