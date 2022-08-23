@@ -36,4 +36,4 @@ Looks like this...
 
 ## Author
 
-* **Ashley Strahle** - [AshStrahle](https://github.com/AshStrahle)
+[Ashley Strahle](https://github.com/AshStrahle)
