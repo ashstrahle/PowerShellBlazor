@@ -1,4 +1,4 @@
-﻿global using PowerShellBlazor.Models;
+global using PowerShellBlazor.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using PowerShellBlazor.Services;
