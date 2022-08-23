@@ -25,12 +25,12 @@ Looks like this...
 
 * Output must be written using Write-Output, Write-Information, Write-Progress, Write-Warning, or Write-Error only. Output written with Write-Host cannot be captured and hence won't display in the results window.
 
-* Ensure PowerShell Execution Policies has been sufficiently opened to allow your scripts to run. If in doubt (and at own risk), as Administrator run:
+* Ensure PowerShell Execution Policies have been sufficiently opened to allow scripts to run. If in doubt (and at own risk), as Administrator run:
 ```powershell
     Set-ExecutionPolicy Unrestricted -Scope CurrentUser
     Set-ExecutionPolicy Unrestricted -Scope Process
 ```
-Note: for *Visual Studio* users, **execute the above in Package Manager Console**
+**Note:** for *Visual Studio* users, **execute the above in Package Manager Console**
     
 * Place your PowerShell scripts in **~/Scripts/**. .NET requires the path to be relative to the project, hence this location.
 
