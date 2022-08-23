@@ -1,7 +1,6 @@
 ﻿@page "/"
 @inject IPowerShellService PowerShellService
-@inject IWebHostEnvironment WebHostEnvironment
-@using System.Management.Automation;
+
 <EditForm EditContext="@editContext" OnSubmit="RunScript">
     <DataAnnotationsValidator />
     <div class="mb-3">
@@ -16,9 +15,11 @@
 </EditForm>
 
 <hr />
-@foreach (MarkupString line in PowerShellService.Output)
+@foreach (var message in PowerShellService.Output)
 {
-    @line;
+    <div class="@message.PSStream">
+        @((MarkupString)message.Data)
+    </div>
 }
 
 @code
@@ -33,14 +34,11 @@
     protected void RunScript()
     {
         PowerShellService.Output = new();
-        string pscommand = Path.Combine(WebHostEnvironment.ContentRootPath, "Scripts/" + script);
-        PowerShell shell = PowerShell.Create();
-        shell.AddCommand(pscommand);
         PowerShellService.OutputChanged += OutputChanged;
-        Task.Run(() => PowerShellService.RunScript(shell, true));
+        Task.Run(() => PowerShellService.RunScript(script));
     }
 
-    private void OutputChanged(object sender, List<string> newOutput)
+    private void OutputChanged(object sender, List<Message> newOutput)
     {
         InvokeAsync(() => this.StateHasChanged());
     }

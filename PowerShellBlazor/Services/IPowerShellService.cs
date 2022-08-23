@@ -5,9 +5,9 @@ namespace PowerShellBlazor.Services
 {
     public interface IPowerShellService
     {
-        public List<string> Output { get; set; }
-        public Task RunScript(PowerShell shell, bool varwidth);
+        public List<Message> Output { get; set; }
+        public Task RunScript(string script);
 
-        event EventHandler<List<string>> OutputChanged;
+        event EventHandler<List<Message>> OutputChanged;
     }
 }

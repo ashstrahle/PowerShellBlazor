@@ -1,0 +1,27 @@
+﻿.Output {
+    color: black
+}
+
+.Progress {
+    color: green
+}
+
+.Information {
+    color: blue
+}
+
+.Warning::before {
+    content: "*** Warning ***: "
+}
+
+.Warning {
+    color: orange
+}
+
+.Error::before {
+    content: "*** Error ***: "
+}
+
+.Error {
+    color: red
+}

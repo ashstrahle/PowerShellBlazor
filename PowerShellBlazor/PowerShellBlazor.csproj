@@ -9,9 +9,11 @@
   <ItemGroup>
     <None Remove="Microsoft.PowerShell.SDK" />
     <None Remove="Scripts\" />
+    <None Remove="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.2.6" />

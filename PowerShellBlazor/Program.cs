@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿global using PowerShellBlazor.Models;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using PowerShellBlazor.Data;
 using PowerShellBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
