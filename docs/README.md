@@ -25,7 +25,7 @@ Looks like this...
 
 * Output must be written using Write-Output, Write-Information, Write-Progress, Write-Warning, or Write-Error only. Output written with Write-Host cannot be captured and hence won't display in the results window.
 
-* Ensure the PowerShell Execution Policy has been sufficiently opened to allow your scripts to run. If in doubt and at own risk, as Administrator run:
+* Ensure PowerShell Execution Policies has been sufficiently opened to allow your scripts to run. If in doubt (and at own risk), as Administrator run:
 ```powershell
     Set-ExecutionPolicy Unrestricted -Scope CurrentUser
     Set-ExecutionPolicy Unrestricted -Scope Process
